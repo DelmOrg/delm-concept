@@ -1,7 +1,7 @@
 {
     "type": "package",
     "name": "DelmOrg/delm-concept",
-    "summary": "dd",
+    "summary": "Conceptual standard library for Delm",
     "license": "MIT",
     "version": "1.0.0",
     "exposed-modules": [
