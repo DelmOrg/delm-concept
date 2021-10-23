@@ -1,10 +1,10 @@
 
 module Concept.Contract exposing
-        ( Basic
+        ( Basic(..)
         , Contract
-        , FunctionIO
-        , Interface
-        , InterfaceIO
+        , FunctionIO(..)
+        , Interface(..)
+        , InterfaceIO(..)
         , deploy
         , interpret )
 
