@@ -6,6 +6,7 @@ module Concept.Contract exposing
         , FunctionIO(..)
         , Interface(..)
         , InterfaceIO(..)
+        , Signature
         , deploy
         , interpret )
 
@@ -22,6 +23,8 @@ module Concept.Contract exposing
 @docs Interface
 
 @docs InterfaceIO
+
+@docs Signature
 
 @docs deploy
 
@@ -124,7 +127,9 @@ type alias Model model =
     , global : Global
     }
 
+{-| Signature specification.
 
+-}
 type alias Signature =
     { inputs : InterfaceIO
     , outputs : InterfaceIO
