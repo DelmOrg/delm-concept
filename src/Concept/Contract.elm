@@ -2,6 +2,7 @@
 module Concept.Contract exposing
         ( Basic(..)
         , Contract
+        , ContractCore
         , FunctionIO(..)
         , Interface(..)
         , InterfaceIO(..)
@@ -13,6 +14,8 @@ module Concept.Contract exposing
 @docs Basic
 
 @docs Contract
+
+@docs ContractCore
 
 @docs FunctionIO
 
@@ -100,6 +103,9 @@ type alias Contract msg model =
     }
 
 
+{-| Contract Core specification.
+
+-}
 type alias ContractCore msg model =
     { constructor : ( Global -> FunctionIO -> model, InterfaceIO )
     , update : msg -> Global -> model -> ( Requirements, model, FunctionIO )
