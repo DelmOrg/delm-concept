@@ -1,5 +1,12 @@
 
-module Concept.Contract exposing (..)
+module Concept.Contract exposing
+        ( Basic
+        , Contract
+        , FunctionIO
+        , Interface
+        , InterfaceIO
+        , deploy
+        , interpret )
 
 import Array exposing (Array)
 import Browser

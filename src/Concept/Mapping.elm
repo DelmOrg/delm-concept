@@ -1,4 +1,10 @@
-module Concept.Mapping exposing (..)
+module Concept.Mapping exposing
+        ( Mapping
+        , singleton
+        , empty
+        , insert
+        , remove
+        , get )
 
 import Dict exposing (Dict)
 

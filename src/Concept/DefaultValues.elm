@@ -1,4 +1,6 @@
-module Concept.DefaultValues exposing (..)
+module Concept.DefaultValues exposing
+        ( address
+        , int )
 
 import Concept.Core exposing (Address, zeroAddress)
 
