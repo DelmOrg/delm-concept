@@ -3,7 +3,7 @@
     "name": "DelmOrg/delm-concept",
     "summary": "Conceptual standard library for Delm",
     "license": "MIT",
-    "version": "2.2.0",
+    "version": "2.3.0",
     "exposed-modules": [
         "Concept.Contract",
         "Concept.Core",

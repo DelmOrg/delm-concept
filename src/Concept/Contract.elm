@@ -7,6 +7,8 @@ module Concept.Contract exposing
         , Interface(..)
         , InterfaceIO(..)
         , Signature
+        , Model
+        , Msg
         , deploy
         , interpret )
 
@@ -25,6 +27,10 @@ module Concept.Contract exposing
 @docs InterfaceIO
 
 @docs Signature
+
+@docs Model
+
+@docs Msg
 
 @docs deploy
 
@@ -116,7 +122,9 @@ type alias ContractCore msg model =
     , encodeMsg : ( String, FunctionIO ) -> msg
     }
 
+{-| Model specification.
 
+-}
 type alias Model model =
     { deploys : Dict String model
     , form : Dict String ( Maybe Basic, Maybe Basic, Maybe Basic )
@@ -136,6 +144,9 @@ type alias Signature =
     }
 
 
+{-| Msg specification.
+
+-}
 type Msg
     = GenerateGlobal Msg Time.Posix
     | SetGlobal Msg Global
