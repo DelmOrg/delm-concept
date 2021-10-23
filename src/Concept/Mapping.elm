@@ -6,15 +6,35 @@ module Concept.Mapping exposing
         , remove
         , get )
 
+{-| This is part of the standard library for Delm.
+
+@docs Mapping
+
+@docs singleton
+
+@docs empty
+
+@docs insert
+
+@docs remove
+
+@docs get
+
+-}
+
 import Dict exposing (Dict)
 
+{-| Mapping type.
 
+-}
 type Mapping comparable value
     = Mapping (Dict comparable value) value
 
+{-| Creates a mapping with a single key-value pair.
 
+-}
 singleton : comparable -> value -> value -> Mapping comparable value
-singleton comparable value default =
+singleton comparable value _ =
     let
         internalDict =
             Dict.singleton comparable value
@@ -22,6 +42,9 @@ singleton comparable value default =
     Mapping internalDict value
 
 
+{-| Creates an empty mapping.
+
+-}
 empty : value -> Mapping comparable value
 empty default =
     let
@@ -31,6 +54,9 @@ empty default =
     Mapping dict default
 
 
+{-| Inserts a key-value pair into a mapping.
+
+-}
 insert : comparable -> value -> Mapping comparable value -> Mapping comparable value
 insert comparable value mapping =
     let
@@ -45,6 +71,9 @@ insert comparable value mapping =
     Mapping internalDict default
 
 
+{-| Removes a key-value pair from a mapping.
+
+-}
 remove : comparable -> Mapping comparable value -> Mapping comparable value
 remove comparable mapping =
     let
@@ -59,6 +88,9 @@ remove comparable mapping =
     Mapping internalDict default
 
 
+{-| Gets a value from a mapping.
+
+-}
 get : comparable -> Mapping comparable value -> value
 get comparable mapping =
     let

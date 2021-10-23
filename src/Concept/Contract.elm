@@ -8,6 +8,24 @@ module Concept.Contract exposing
         , deploy
         , interpret )
 
+{-| This is part of the standard library for Delm.
+
+@docs Basic
+
+@docs Contract
+
+@docs FunctionIO
+
+@docs Interface
+
+@docs InterfaceIO
+
+@docs deploy
+
+@docs interpret
+
+-}
+
 import Array exposing (Array)
 import Browser
 import Bytes exposing (..)
@@ -27,7 +45,9 @@ import String exposing (fromFloat, fromInt, toInt)
 import Task
 import Time
 
+{-| Blockchain base types.
 
+-}
 type Basic
     = RAddress Address
     | RString String
@@ -35,6 +55,9 @@ type Basic
     | RBool Bool
 
 
+{-| Function parameter positions.
+
+-}
 type FunctionIO
     = None
     | Single Basic
@@ -42,6 +65,9 @@ type FunctionIO
     | Tuple3 ( Basic, Basic, Basic )
 
 
+{-| Interfaces.
+
+-}
 type Interface
     = IAddress
     | IString
@@ -49,6 +75,9 @@ type Interface
     | IBool
 
 
+{-| Implementation type for Interfaces.
+
+-}
 type InterfaceIO
     = INone
     | ISingle Interface
@@ -62,6 +91,9 @@ type Position
     | P3
 
 
+{-| Contract specification.
+
+-}
 type alias Contract msg model =
     { constructor : ( Global -> FunctionIO -> model, InterfaceIO )
     , update : msg -> Global -> model -> ( Requirements, model, FunctionIO )
@@ -107,11 +139,17 @@ type Msg
     | SetForm String Position Basic
 
 
+{-| Syntax sugar, not meant to be used directly.
+
+-}
 deploy : Contract msg model -> Program () model msg
 deploy _ =
     throw "Please, don't run this directly."
 
 
+{-| Interpreter function.
+
+-}
 interpret : ContractCore msg model -> Program () (Model model) Msg
 interpret contract =
     Browser.element

@@ -4,40 +4,74 @@ module Concept.Core exposing
         , PayableAddress
         , zeroAddress
         , throw
-        , defaultValues
         , Msg
         , Block
         , Tx
         , Global )
 
 
+{-| This is part of the standard library for Delm.
+
+@docs Requirements
+
+@docs Address
+
+@docs PayableAddress
+
+@docs zeroAddress
+
+@docs throw
+
+@docs Msg
+
+@docs Block
+
+@docs Tx
+
+@docs Global
+
+-}
+
+{-| Validation for Contracts.
+
+-}
 type alias Requirements =
     List ( Bool, String )
 
 
+{-| Address is a unique identification of a Wallet or Contract in a blockchain.
+
+-}
 type alias Address =
     String
 
 
+{-| A Payable Address is an Address that can be used to send Ether.
+
+-}
 type alias PayableAddress =
     String
 
 
+{-| The Zero Address is a special Address that can be handy for burning tokens.
+
+-}
 zeroAddress : String
 zeroAddress =
     "0x0000000000000000000000000000000000000000"
 
 
+{-| Helper function to throw an error.
+
+-}
 throw : String -> a
 throw =
     Debug.todo
 
 
-defaultValues : a -> a
-defaultValues a =
-    a
+{-| Receiving Message.
 
-
+-}
 type alias Msg =
     { sender : PayableAddress
     , data : String
@@ -46,6 +80,9 @@ type alias Msg =
     }
 
 
+{-| An individual block information.
+
+-}
 type alias Block =
     { coinbase : Address
     , difficulty : Int
@@ -55,11 +92,17 @@ type alias Block =
     }
 
 
+{-| Transaction information.
+
+-}
 type alias Tx =
     { gasPrice : Int
     , origin : Address
     }
 
 
+{-| Global information.
+
+-}
 type alias Global =
     { msg : Msg, block : Block }
